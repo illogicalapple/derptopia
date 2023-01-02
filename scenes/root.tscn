@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://blcdmoo8jq7ma"]
+
+[ext_resource type="Script" path="res://main/player/player.gd" id="1_2yrk2"]
+[ext_resource type="Script" path="res://main/camera.gd" id="1_er4me"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jrlui"]
+
+[node name="Root" type="Node3D"]
+
+[node name="Object" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34339, 0, -4.24488)
+
+[node name="Map" type="CSGBox3D" parent="."]
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(18.1983, 1, 17.3985)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1247, 0)
+collision_mask = 2
+script = ExtResource("1_2yrk2")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Player"]
+use_collision = true
+size = Vector3(0.372991, 0.652638, 0.439747)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(0.373, 0, 0, 0, 0.653, 0, 0, 0, 0.44, 0, 0, 0)
+shape = SubResource("BoxShape3D_jrlui")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20814, 2.17094)
+current = true
+script = ExtResource("1_er4me")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.99873, 4.72825)
+light_angular_distance = 42.5
+directional_shadow_mode = 1
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
