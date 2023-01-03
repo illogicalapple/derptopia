@@ -21,10 +21,6 @@ func _physics_process(delta):
 		velocity -= Vector3(sin(rotation.y) * speed, 0, cos(rotation.y) * speed) * delta
 	if Input.is_action_pressed("walk_backward"):
 		velocity += Vector3(sin(rotation.y) * speed, 0, cos(rotation.y) * speed) * delta
-	if Input.is_action_pressed("walk_left"):
-		velocity -= Vector3(cos(rotation.y) * speed, 0, sin(rotation.y) * speed) * delta
-	if Input.is_action_pressed("walk_right"):
-		velocity += Vector3(cos(rotation.y) * speed, 0, sin(rotation.y) * speed) * delta
 	rotation.y -= (mouse_position.x - (screen_size.x / 2)) * delta * 0.5
 	get_viewport().warp_mouse(screen_size / 2)
 	velocity.x = lerp(velocity.x, 0.0, 4 * delta)
