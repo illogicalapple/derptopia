@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://blcdmoo8jq7ma"]
+[gd_scene load_steps=5 format=3 uid="uid://blcdmoo8jq7ma"]
 
-[ext_resource type="Script" path="res://main/camera.gd" id="1_er4me"]
-[ext_resource type="PackedScene" uid="uid://by5k65l1wkfwc" path="res://main/player/player.tscn" id="1_j8cw3"]
+[ext_resource type="PackedScene" uid="uid://by5k65l1wkfwc" path="res://main/player/player.tscn" id="1_sik2t"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_tqljk"]
+[ext_resource type="Environment" uid="uid://bor8cgn8oa1ck" path="res://default_env.tres" id="2_eqp37"]
+[ext_resource type="Script" path="res://main/camera.gd" id="3_2yatt"]
 
 [node name="Root" type="Node3D"]
+script = ExtResource("1_tqljk")
 
 [node name="Object" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34339, 0, -4.24488)
@@ -17,19 +20,13 @@ collision_layer = 2
 collision_mask = 0
 size = Vector3(18.1983, 1, 17.3985)
 
-[node name="Player" parent="." instance=ExtResource("1_j8cw3")]
+[node name="Player" parent="." instance=ExtResource("1_sik2t")]
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20814, 2.17094)
+environment = ExtResource("2_eqp37")
 current = true
-script = ExtResource("1_er4me")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.99873, 4.72825)
-light_energy = 4.778
-light_indirect_energy = 2.333
-light_angular_distance = 42.5
-directional_shadow_mode = 1
+script = ExtResource("3_2yatt")
 
 [node name="GUI" type="Control" parent="."]
 layout_mode = 3

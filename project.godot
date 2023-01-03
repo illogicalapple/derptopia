@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="derptopia"
-run/main_scene="res://scenes/root.tscn"
+run/main_scene="res://scenes/start.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -60,4 +60,4 @@ walk_right={
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.611765, 0.67451, 1, 1)
+environment/defaults/default_clear_color=Color(1, 1, 1, 1)
